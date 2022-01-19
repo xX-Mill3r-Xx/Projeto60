@@ -12,7 +12,7 @@ namespace Projeto60
         public int NumeroDaConta { get; set; }
         public string Titular { get; set; }
         public double SaldoInicial { get; set; }
-        private double _taxa;
+        private double _taxa = 5.00;
 
         public Conta()
         {
@@ -27,7 +27,12 @@ namespace Projeto60
 
         public double Taxa
         {
-            get { return 5.00; }
+            get { return _taxa; }
+            private set
+            {
+                value = _taxa;
+                _taxa = value;
+            }
         }
 
         public void ValDeposito(double deposito)
