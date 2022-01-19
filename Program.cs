@@ -62,14 +62,15 @@ namespace Projeto60
             dep = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             c1.Saque(dep);
 
-            InformacoesDaConta:
             Console.WriteLine("Dados da conta:");
             Console.WriteLine(c1);
 
+            InicioOp:
             Console.Write("Deseja efetuar mais alguma operção no caixa (s/n)? ");
             char r2 = char.Parse(Console.ReadLine());
             if(r2 == 's' || r2 == 'S')
             {
+                Console.WriteLine();
                 Console.WriteLine("#1 - Retornar ao Inicio");
                 Console.WriteLine("#2 - Informaçoões da conta");
                 Console.WriteLine("#3 - Depositar");
@@ -94,11 +95,11 @@ namespace Projeto60
                         goto Sacar;
                     case 5:
                         Console.WriteLine("#5 - Sair");
-                        break;
+                        goto Final;
                         
                     default:
                         Console.WriteLine("Escolha uma opção valida");
-                        break;
+                        goto InicioOp;
                 }
 
             }
@@ -106,7 +107,13 @@ namespace Projeto60
             {
                 Console.WriteLine("Obrigado por usar nosso caixa eletronico! Volte sempre.");
             }
-
+            
+            InformacoesDaConta:
+            Console.WriteLine("Dados da conta:");
+            Console.WriteLine(c1);
+            
+            Final:
+            Console.WriteLine("Obrigado por usar nosso caixa eletronico! Volte sempre.");
             Console.ReadLine();
         }
     }
